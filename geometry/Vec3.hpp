@@ -94,7 +94,7 @@ public:
 		T dst[] = { 0,0,0,0 };
 		for (int row = 0; row < 4; ++row)
 			for (int col = 0; col < 4; ++col)
-				dst[row] += src[col] * m[row][col];
+				dst[row] += src[col] * m[col][row];
 		Vec3<T> res(dst[0], dst[1], dst[2]);
 		res = res * (1 / dst[3]);
 		return res;

@@ -30,6 +30,24 @@ public:
 		m_m[3][2] = a32;
 		m_m[3][3] = a33;
 	}
+	Matrix44(Vec3<T> x, Vec3<T> y, Vec3<T> z, Vec3<T> origin) {
+		m_m[0][0] = x[0];
+		m_m[0][1] = x[1];
+		m_m[0][2] = x[2];
+		m_m[0][3] = 0;
+		m_m[1][0] = y[0];
+		m_m[1][1] = y[1];
+		m_m[1][2] = y[2];
+		m_m[1][3] = 0;
+		m_m[2][0] = z[0];
+		m_m[2][1] = z[1];
+		m_m[2][2] = z[2];
+		m_m[2][3] = 0;
+		m_m[3][0] = origin[0];
+		m_m[3][1] = origin[1];
+		m_m[3][2] = origin[2];
+		m_m[3][3] = 1;
+	}
 	const T* operator[](int i) const
 	{
 		return m_m[i];

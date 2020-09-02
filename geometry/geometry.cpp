@@ -164,11 +164,27 @@ void TestMatrix44()
 	p3 = p2 * dinv;
 	std::cout << "point " << p1 << " -> " << p2 << " -> " << p3 << std::endl;
 }
+void TestLookAt()
+{
+	Vec3f camera_pos(0,3,3);
+	Vec3f object_pos(0,0,0);
+	Matrix44f res = lookAt(camera_pos, object_pos);
+	std::cout << "matrix " << res << std::endl;
+	Vec3f test_poss[] = { Vec3f(-2,-1,1),Vec3f(-2,-1,-1),Vec3f(-2,1,-1),Vec3f(-2,1,1), Vec3f(2,-1,1),Vec3f(2,-1,-1),Vec3f(2,1,-1),Vec3f(2,1,1) };
+	for (Vec3f p : test_poss)
+	{
+		Vec3f res_pos = p * res;
+		std::cout << "point " << p << " -> " << res_pos << std::endl;
+	}
+}
+void drawTree();
 
 int main()
 {
 //	TestVec3();
 //	TestMatrix44();
 //	TestLinear();
-	TestBilinear();
+//	TestBilinear();
+	drawTree();
+	//TestLookAt();
 }
